@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <section class="login">
+      <% if (message.msg) { %>
+      <div
+        class="alert alert-notif alert-danger alert-dismissible d-flex align-items-center fade show"
+      >
+        <i class="bi-exclamation-octagon-fill"></i>
+        <strong class="mx-2">Error!</strong> <%= message.msg %>.
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+        ></button>
+      </div>
+      <% } %>
+      <div class="login-form-container">
+        <h1 class="login-heading">Login</h1>
+
+        <!-- domain.com/ -->
+
+        <form action="/auth/login" method="POST" class="login-form">
+          <label for="username">Username</label>
+          <input
+            type="username"
+            name="username"
+            placeholder="Masukan Username"
+            class="form-control-login"
+          />
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Masukan password"
+            class="form-control-login"
+          />
+
+          <button type="submit" class="btn-warning btn-sub">Login</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

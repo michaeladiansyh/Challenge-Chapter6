@@ -1,0 +1,157 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  background-color: #9c835f;
+  left: 0px;
+  top: 0px;
+}
+/*Navgiation Styling*/
+.back-page {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 72px;
+  line-height: 98px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #724c21;
+}
+
+.games-logo {
+  width: 72px;
+  height: 72px;
+  left: 119px;
+  top: 27px;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.nav > li > p {
+  width: 410px;
+  height: 62px;
+  left: 218px;
+  top: 40px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 49px;
+  text-align: center;
+  color: #f9b23d;
+  margin-top: 2.5rem;
+  margin-left: 1rem;
+}
+
+/*Navgiation Styling*/
+
+/*Styling for Row 1*/
+
+.col > h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 49px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.row {
+  text-align: center;
+}
+
+/*Styling for Row 1*/
+
+.choice {
+  width: 148px;
+  height: 132px;
+  padding: 20px;
+}
+
+.refresh {
+  width: 148px;
+  height: 132px;
+  padding: 20px;
+}
+
+.choice-cust {
+  width: 122px;
+  height: 160px;
+  padding: 20px;
+}
+
+.btn-img {
+  display: block;
+  text-align: center;
+}
+
+.btn-img-cust {
+  display: block;
+  text-align: center;
+  margin-top: 2vh;
+}
+
+.vs {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 8vw;
+  line-height: 196px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #bd0000;
+  max-height: 150px;
+}
+
+.result {
+}
+
+#player-win {
+  display: none;
+  font-size: 2vw;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  background-color: green;
+  color: #fff;
+  position: relative;
+  top: 3rem;
+}
+#draw {
+  display: none;
+  font-size: 2vw;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  background-color: green;
+  color: #fff;
+  position: relative;
+  top: 3rem;
+}
+#computer-win {
+  display: none;
+  font-size: 2vw;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  background-color: green;
+  color: #fff;
+  position: relative;
+  top: 3rem;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  border: 3px solid #531345;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 40%;
+}

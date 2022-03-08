@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Password</th>
+
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% users.forEach(user => { %>
+                <tr>
+                  <th scope="row"><%= user.id %></th>
+                  <td><%= user.username %></td>
+                  <td><%= user.password %></td>
+
+                  <td>
+                    <a
+                      href="/api/userbiodata/<%=user.id%>"
+                      class="btn btn-primary badgerounder-pill"
+                      >Detail</a
+                    >
+                    <form
+                      action="/api/users/<%=user.id%>?_method=DELETE"
+                      method="POST"
+                    >
+                      <button type="submit" class="btn btn-primary">
+                        Delete
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+                <% }) %>
+                <tr>
+                  <td>
+                    <a
+                      href="/api/register"
+                      class="btn btn-primary badgerounder-pill"
+                      >Create New User</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
