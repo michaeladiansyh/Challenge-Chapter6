@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">User ID</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% histories.forEach(history => { %>
+                <tr>
+                  <th scope="row"><%= history.id %></th>
+                  <td><%= history.score %></td>
+                  <td><%= history.userId %></td>
+                </tr>
+                <% }) %>
+                <tr>
+                  <td>
+                    <a
+                      href="/api/create-history"
+                      class="btn btn-primary badgerounder-pill"
+                      >Create New History</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -22,6 +22,24 @@ module.exports = {
       });
   },
 
+  allHistory(req, res) {
+    return UserGameHistory.findAll()
+      .then((data) => {
+        res.status(200).json({
+          status: "success",
+          data: {
+            histories: data,
+          },
+        });
+      })
+      .catch((err) => {
+        res.status(400).json({
+          status: "fail",
+          error: [err.message],
+        });
+      });
+  },
+
   async createUser(req, res) {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
@@ -45,10 +63,12 @@ module.exports = {
   },
 
   async createUserBiodata(req, res) {
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.password, salt);
     const { username, password, fullName, address, email } = req.body;
     return await User.create({
       username: username,
-      password: password,
+      password: hash,
     })
       .then((user) => {
         UserGameBiodata.create({
@@ -75,12 +95,7 @@ module.exports = {
         userId,
       });
 
-      return res.status(201).json({
-        status: "success",
-        data: {
-          posts: history,
-        },
-      });
+      return res.status(200).redirect("/api/history");
     } catch (error) {
       res.status(400).json({
         status: "fail",
@@ -252,12 +267,14 @@ module.exports = {
 
   async updateUserBiodata(req, res) {
     const userId = req.params.id;
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.password, salt);
     const { username, password, fullName, address, email } = req.body;
 
     return await User.update(
       {
         username: username,
-        password: password,
+        password: hash,
       },
       {
         where: {
@@ -300,6 +317,22 @@ module.exports = {
       title: "Admin Dashboard",
       layout: "../views/layouts/main-admin.ejs",
       users: userdt,
+    });
+  },
+
+  async historyIndex(req, res) {
+    const userdt = await UserGameHistory.findAll();
+    res.render("history", {
+      title: "History Dashboard",
+      layout: "../views/layouts/main-history.ejs",
+      histories: userdt,
+    });
+  },
+  createHistoryIndex(req, res) {
+    res.render("create-history", {
+      layout: "../views/layouts/main-admin.ejs",
+      title: "Register History Page",
+      message: "",
     });
   },
 };
