@@ -159,7 +159,7 @@ module.exports = {
           },
           individualHooks: true,
         });
-        return res.status(200).json({
+        return res.status(200).redirect("/api/user").json({
           status: "success",
           message: "id sukses di delete",
         });
@@ -179,10 +179,13 @@ module.exports = {
         },
         individualHooks: true,
       });
-      return res.status(200).json({
-        status: "success",
-        message: `Id dari ${req.params.id} berhasil di restore`,
-      });
+      return res
+        .status(200)
+        .redirect("/api/user")
+        .json({
+          status: "success",
+          message: `Id dari ${req.params.id} berhasil di restore`,
+        });
     } catch (error) {
       return res.status(500).json({
         status: "fail",
@@ -275,12 +278,7 @@ module.exports = {
             },
           }
         );
-        res.status(200).json({
-          status: "success",
-          datas: {
-            users: data,
-          },
-        });
+        return res.status(200).redirect("/api/user");
       })
       .catch((err) => {
         res.status(422).json({

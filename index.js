@@ -19,6 +19,7 @@ app.use(
 );
 
 app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 app.use(expressLayout);
 
 app.use("/", function (req, res, next) {
@@ -44,7 +45,6 @@ app.use("/", mainRoute);
 app.use("/auth", loginRoute);
 app.use("/games", gamesRoute);
 app.use("/api/", adminRoute);
-app.use(methodOverride("_method"));
 
 app.use((req, res, next) => {
   res.locals.email = req.email;
