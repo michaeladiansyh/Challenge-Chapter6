@@ -5,3 +5,19 @@ h1 {
 a {
   margin-bottom: 10px;
 }
+
+.container {
+  margin-top: 5%;
+}
+
+.register,
+.details {
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.btn {
+  margin-top: 5%;
+}
