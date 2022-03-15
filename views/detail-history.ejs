@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Score</th>
+                  <th scope="col">Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% data.forEach(list => { %>
+                <tr>
+                  <th scope="row"><%= list.score %></th>
+                  <td><%= list.User.username %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

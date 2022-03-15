@@ -155,6 +155,61 @@ module.exports = {
       });
     }
   },
+  async getHistoryById(req, res) {
+    try {
+      const idUser = req.params.id;
+      const listhistoryid = await UserGameHistory.findAll({
+        where: {
+          userId: idUser,
+        },
+        include: [
+          {
+            model: User,
+            as: "User",
+          },
+        ],
+      });
+      return res.render("detail-history", {
+        title: "History List ID",
+        layout: "../views/layouts/main-history.ejs",
+        data: listhistoryid,
+      });
+    } catch (error) {
+      res.status(400).json({
+        status: "fail",
+        errors: [error.message],
+      });
+    }
+
+    /* const idUser = req.params.id;
+    const findById = await User.findAll({
+      where: {
+        id: idUser,
+      },
+      include: [
+        {
+          model: UserGameHistory,
+          as: "UserHistory",
+          where: {
+            userId: idUser,
+          },
+        },
+      ],
+    });
+    if (!findById) {
+      res.status(400).json({
+        message: "data not found",
+      });
+    } else {
+       res.render("detail-history", {
+        title: "Halaman Details History Dashboard",
+        layout: "../views/layouts/main-history.ejs",
+        data: findById,
+      }); 
+      res.status(200).json({
+        data: findById,
+      }); */
+  },
   async deleteUser(req, res) {
     try {
       const user = await User.findOne({
@@ -322,12 +377,23 @@ module.exports = {
 
   async historyIndex(req, res) {
     const userdt = await UserGameHistory.findAll();
+    const historydt = await UserGameHistory.f;
     res.render("history", {
       title: "History Dashboard",
       layout: "../views/layouts/main-history.ejs",
       histories: userdt,
     });
   },
+  async historyByIdIndex(req, res) {
+    const userdt = await UserGameHistory.findAll();
+    const historydt = await UserGameHistory.f;
+    res.render("history", {
+      title: "History Dashboard",
+      layout: "../views/layouts/main-history.ejs",
+      histories: userdt,
+    });
+  },
+
   createHistoryIndex(req, res) {
     res.render("create-history", {
       layout: "../views/layouts/main-admin.ejs",

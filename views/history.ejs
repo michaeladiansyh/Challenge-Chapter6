@@ -14,11 +14,11 @@
                 </tr>
               </thead>
               <tbody>
-                <% histories.forEach(history => { %>
+                <% histories.forEach(hst => { %>
                 <tr>
-                  <th scope="row"><%= history.id %></th>
-                  <td><%= history.score %></td>
-                  <td><%= history.userId %></td>
+                  <th scope="row"><%= hst.id %></th>
+                  <td><%= hst.score %></td>
+                  <td><%= hst.userId %></td>
                 </tr>
                 <% }) %>
                 <tr>

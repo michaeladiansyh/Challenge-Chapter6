@@ -22,6 +22,7 @@ router.post("/adminlogin", auth.sign);
 
 router.post("/history", auth.createHistory);
 router.get("/history", auth.allHistory);
+router.get("/history/:id", auth.getHistoryById);
 router.get("/create-history", auth.createHistoryIndex);
 
 module.exports = router;
